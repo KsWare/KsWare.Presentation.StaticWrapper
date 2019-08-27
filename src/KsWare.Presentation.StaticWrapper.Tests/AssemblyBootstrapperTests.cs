@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 
 namespace KsWare.Presentation.StaticWrapper.Tests
 {
@@ -8,6 +9,11 @@ namespace KsWare.Presentation.StaticWrapper.Tests
 		[Test]
 		public void Initialize()
 		{
+			var applicationMock = new Mock<IApplication>();
+			var applicationDispatcherMock = new Mock<IApplicationDispatcher>();
+
+			AssemblyBootstrapper.ApplicationWrapper = applicationMock.Object;
+			AssemblyBootstrapper.ApplicationDispatcher = applicationDispatcherMock.Object;
 			AssemblyBootstrapper.Initialize();
 		}
 	}

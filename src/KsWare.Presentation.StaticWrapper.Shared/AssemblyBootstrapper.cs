@@ -20,7 +20,7 @@ namespace KsWare.Presentation.StaticWrapper
 		{
 //			Application = System.Windows.Application.Current ?? throw new InvalidOperationException("Application.Current is null!");
 //			Application_Dispatcher = Application.Dispatcher ?? throw new InvalidOperationException("Application.Current.Dispatcher is null!");
-			if(Application==null || ApplicationWrapper == null) throw new InvalidOperationException("Application is null!");
+			if(Application==null && ApplicationWrapper == null) throw new InvalidOperationException("Application is null!");
 			if(ApplicationDispatcher==null) throw new InvalidOperationException("ApplicationDispatcher is null!");
 		}
 
