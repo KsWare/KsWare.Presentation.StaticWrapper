@@ -7,6 +7,9 @@ namespace KsWare.Presentation.StaticWrapper
 {
 	public interface IApplication
 	{
+		ApplicationDoExtender Do { get; }
+		ApplicationGetExtender Get { get; }
+
 		int Run();
 
 		/// <summary>Starts a Windows Presentation Foundation (WPF) application and opens the specified window.</summary>

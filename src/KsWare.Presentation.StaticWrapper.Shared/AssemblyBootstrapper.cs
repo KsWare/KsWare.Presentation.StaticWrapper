@@ -14,7 +14,7 @@ namespace KsWare.Presentation.StaticWrapper
 
 		public static IApplication ApplicationWrapper { get; set; } = new ApplicationWrapper();
 
-		public static IApplicationDispatcher ApplicationDispatcher { get; set; } = new ApplicationDispatcher();
+		public static IApplicationDispatcher ApplicationDispatcher { get; set; } = new ApplicationDispatcherInstance();
 
 		public static void Initialize()
 		{

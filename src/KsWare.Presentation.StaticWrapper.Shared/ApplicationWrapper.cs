@@ -33,7 +33,12 @@ namespace KsWare.Presentation.StaticWrapper
 
 		public ApplicationWrapper()
 		{
+			Do = new ApplicationDoExtender(this);
+			Get = new ApplicationGetExtender(this);
 		}
+
+		public ApplicationDoExtender Do { get; }
+		public ApplicationGetExtender Get { get; } 
 
 		public Dispatcher Dispatcher
 		{
@@ -48,7 +53,6 @@ namespace KsWare.Presentation.StaticWrapper
 			}
 		}
 
-		public IntPtr MainWindowHandle => new WindowInteropHelper(MainWindow).Handle;
 
 
 		public int Run() => throw new NotImplementedException();
