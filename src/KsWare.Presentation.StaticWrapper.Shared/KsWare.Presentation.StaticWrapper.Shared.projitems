@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)ApplicationDispatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ApplicationDispatcherExtender.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ApplicationDispatcherInstance.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ApplicationDoExtender.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ApplicationGetExtender.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ApplicationWrapper.cs" />
