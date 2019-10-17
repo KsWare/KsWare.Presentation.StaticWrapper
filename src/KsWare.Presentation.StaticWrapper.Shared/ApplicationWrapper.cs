@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Windows;
-using System.Windows.Interop;
 using System.Windows.Threading;
 
-namespace KsWare.Presentation.StaticWrapper
-{
+namespace KsWare.Presentation.StaticWrapper {
+
 	//[Export(typeof(IApplication)),PartCreationPolicy(CreationPolicy.Shared)]
-	public class ApplicationWrapper : IApplication
-	{
+	public class ApplicationWrapper : IApplication {
+
 		private readonly Application _current;
 		private readonly WindowCollection _windows;
 		private readonly Window _mainWindow;
@@ -19,36 +18,33 @@ namespace KsWare.Presentation.StaticWrapper
 		private readonly System.Reflection.Assembly _resourceAssembly;
 		private readonly Dispatcher _dispatcher;
 
-		public ApplicationWrapper(Application current)
-		{
+		public ApplicationWrapper(Application current) {
 			_current = current ?? throw new ArgumentNullException(nameof(current));
 			_dispatcher = _current.Dispatcher;
 		}
 
-		public ApplicationWrapper(Application current, Dispatcher dispatcher)
-		{
+		public ApplicationWrapper(Application current, Dispatcher dispatcher) {
 			_current = current ?? throw new ArgumentNullException(nameof(current));
 			_dispatcher = dispatcher ?? throw new ArgumentNullException(nameof(current));
 		}
 
-		public ApplicationWrapper()
-		{
+		public ApplicationWrapper() {
+			Do = new ApplicationDoExtender(this);
+			Get = new ApplicationGetExtender(this);
 		}
 
-		public Dispatcher Dispatcher
-		{
-			get
-			{
+		public ApplicationDoExtender Do { get; }
+		public ApplicationGetExtender Get { get; }
+
+		public Dispatcher Dispatcher {
+			get {
 				if (_dispatcher != null) return _dispatcher;
 				if (Current != null) return Current.Dispatcher;
-				
-				throw new NotImplementedException(); 
-				// TODO create Dispatcher for case Current == null
 
+				throw new NotImplementedException();
+				// TODO create Dispatcher for case Current == null
 			}
 		}
-
-		public IntPtr MainWindowHandle => new WindowInteropHelper(MainWindow).Handle;
 
 
 		public int Run() => throw new NotImplementedException();
@@ -62,7 +58,7 @@ namespace KsWare.Presentation.StaticWrapper
 		public object FindResource(object resourceKey) => Current.FindResource(resourceKey);
 
 		public object TryFindResource(object resourceKey) => Current.TryFindResource(resourceKey);
-		
+
 		public Application Current => _current ?? AssemblyBootstrapper.Application;
 
 		public WindowCollection Windows => Current?.Windows;
@@ -77,7 +73,10 @@ namespace KsWare.Presentation.StaticWrapper
 
 		public IDictionary Properties => Current.Properties;
 
-		public System.Reflection.Assembly ResourceAssembly { get => Application.ResourceAssembly; set => Application.ResourceAssembly = value; }
+		public System.Reflection.Assembly ResourceAssembly {
+			get => Application.ResourceAssembly;
+			set => Application.ResourceAssembly = value;
+		}
 
 //		public event StartupEventHandler Startup;
 //		public event ExitEventHandler Exit;
@@ -152,5 +151,7 @@ namespace KsWare.Presentation.StaticWrapper
 //		{
 //			throw new NotImplementedException();
 //		}
+
 	}
+
 }

@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("KsWare.Presentation.StaticWrapper")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Wrapper for static .NET framework classes.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("KsWare")]
 [assembly: AssemblyProduct("KsWare.Presentation.StaticWrapper")]

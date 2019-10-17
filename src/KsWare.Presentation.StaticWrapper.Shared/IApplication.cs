@@ -3,10 +3,13 @@ using System.Collections;
 using System.Security;
 using System.Windows;
 
-namespace KsWare.Presentation.StaticWrapper
-{
-	public interface IApplication
-	{
+namespace KsWare.Presentation.StaticWrapper {
+
+	public interface IApplication {
+
+		ApplicationDoExtender Do { get; }
+		ApplicationGetExtender Get { get; }
+
 		int Run();
 
 		/// <summary>Starts a Windows Presentation Foundation (WPF) application and opens the specified window.</summary>
@@ -163,5 +166,7 @@ namespace KsWare.Presentation.StaticWrapper
 //		/// <summary>Raises the <see cref="E:System.Windows.Application.FragmentNavigation" /> event.</summary>
 //		/// <param name="e">A <see cref="T:System.Windows.Navigation.FragmentNavigationEventArgs" /> that contains the event data.</param>
 //		void OnFragmentNavigation(Action<FragmentNavigationEventArgs> e);
+
 	}
+
 }
