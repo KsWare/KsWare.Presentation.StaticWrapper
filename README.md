@@ -6,43 +6,52 @@ KsWare.Presentation.StaticWrapper
 Replacements
 ------------
 
-| **Case**                       | **Solution**          |
-|--------------------------------|-----------------------|
+| **Case**                       | **Solution**                                     |
+|--------------------------------|--------------------------------------------------|
 | Application.Current.Dispatcher | [ApplicationDispatcher](##ApplicationDispatcher) |
-| Application                    | [ApplicationWrapper](##ApplicationWrapper)    |
+| Application                    | [ApplicationWrapper](##ApplicationWrapper)       |
 
 Nuget Development Feet
 ----------------------
 
-[https://ci.appveyor.com/nuget/KsWare.Presentation.StaticWrapper](https://ci.appveyor.com/nuget/KsWare.Presentation.StaticWrapper)
+<https://ci.appveyor.com/nuget/KsWare.Presentation.StaticWrapper>
 
-## ApplicationDispatcher
-Extendable static class.
-### Usage:
-Static:
-``` csharp
+ApplicationDispatcher
+---------------------
+
+Extendable static class. \#\#\# Usage: Static:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ csharp
 ApplicationDispatcher.Do.RunAsync(...)
-```
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 or if you prefer MEF:
-``` csharp
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ csharp
 [Import] IApplicationDispatcher ApplicationDispatcher;
 ApplicationDispatcher.Do.RunAsync(...)
-```
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Extended:
-``` csharp
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ csharp
 ApplicationDispatcher.Do.AnythingCustom(...);
 ApplicationDispatcher.Do.AnythingCustom();
-```
-## ApplicationWrapper
-Extendable static class.
-### Usage:
-MEF: 
-``` csharp
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ApplicationWrapper
+------------------
+
+Extendable static class. \#\#\# Usage: MEF:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ csharp
 [Import] IApplication _application;
-foreach(w in Application.Windows) DoAnothing(w);
-```
+foreach(w in _application.Windows) DoAnothing(w);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Extended:
-``` csharp
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ csharp
 _application.Do.AnythingCustom(...);
 var v = _application.Get.AnythingCustom();
-```
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

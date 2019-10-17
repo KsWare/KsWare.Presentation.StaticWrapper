@@ -2,13 +2,13 @@
 using System.Threading;
 using System.Windows.Threading;
 
-namespace KsWare.Presentation.StaticWrapper
-{
+namespace KsWare.Presentation.StaticWrapper {
+
 	/// <summary>
 	/// Class ApplicationDispatcher. Gets access to the application dispatcher.
 	/// </summary>
-	public static class ApplicationDispatcher
-	{
+	public static class ApplicationDispatcher {
+
 		/// <summary>
 		/// The "Do" extender.
 		/// </summary>
@@ -29,4 +29,5 @@ namespace KsWare.Presentation.StaticWrapper
 		public static bool CheckAccess() => CurrentDispatcher.CheckAccess();
 
 	}
+
 }

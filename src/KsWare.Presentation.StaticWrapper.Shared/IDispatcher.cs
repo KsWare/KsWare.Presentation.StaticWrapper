@@ -1,14 +1,10 @@
-﻿using System;
-using System.ComponentModel;
-using System.Security;
-using System.Security.Permissions;
+﻿using System.ComponentModel;
 using System.Threading;
 using System.Windows.Threading;
 
-namespace KsWare.Presentation.StaticWrapper
-{
-	public interface IDispatcher
-	{
+namespace KsWare.Presentation.StaticWrapper {
+
+	public interface IDispatcher {
 
 		/// <summary>Gets the <see cref="T:System.Windows.Threading.Dispatcher" /> for the thread currently executing and creates a new <see cref="T:System.Windows.Threading.Dispatcher" /> if one is not already associated with the thread. </summary>
 		/// <returns>The dispatcher associated with the current thread.</returns>
@@ -419,4 +415,5 @@ namespace KsWare.Presentation.StaticWrapper
 //		event DispatcherUnhandledExceptionEventHandler UnhandledException;
 
 	}
+
 }
